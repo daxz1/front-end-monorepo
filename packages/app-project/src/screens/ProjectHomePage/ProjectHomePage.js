@@ -23,13 +23,14 @@ const RemainingHeightBox = styled(Box)`
 `
 
 function ProjectHomePage (props) {
+  const { workflows } = props
   return (
     <>
       <Media at='default'>
         <ZooHeaderWrapper />
         <ProjectHeader />
         <Announcements />
-        <Hero />
+        <Hero workflows={workflows} />
         <Box margin='small' gap='small'>
           <ThemeModeToggle />
           <ZooniverseTalk />
@@ -46,7 +47,7 @@ function ProjectHomePage (props) {
           <ProjectHeader />
           <Announcements />
           <RemainingHeightBox>
-            <Hero isWide={true} />
+            <Hero workflows={workflows} isWide={true} />
           </RemainingHeightBox>
         </FullHeightBox>
         <Box
