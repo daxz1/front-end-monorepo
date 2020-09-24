@@ -11,7 +11,8 @@ async function fetchWorkflowData (activeWorkflows, env) {
     })
   const { workflows, linked } = response.body
   const subjectSets = linked ? linked.subject_sets : []
-  await Promise.allSettled(subjectSets.map(subjectSet => fetchPreviewImage(subjectSet, env)))
+  const awaitPromises = Promise.allSettled ? Promise.allSettled.bind(Promise) : Promise.all.bind(Promise)
+  await awaitPromises(subjectSets.map(subjectSet => fetchPreviewImage(subjectSet, env)))
   return { subjectSets, workflows }
 }
 
