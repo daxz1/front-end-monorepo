@@ -72,6 +72,7 @@ const VariableStarViewer = React.forwardRef((props, ref) => {
         { name: 'barCharts', start: [1, 0], end: [1, 1] },
         { name: 'HRDiagram', start: [1, 2], end: [1, 3] }
       ]}
+      pad={{ horizontal: 'xsmall' }}
     >
       <Controls
         data={scatterPlot.data}
@@ -145,7 +146,6 @@ const VariableStarViewer = React.forwardRef((props, ref) => {
         gridArea='barCharts'
         margin={{ bottom: 'xsmall' }}
         pad='none'
-        width={{ max: '290px' }}
       >{Object.keys(barJSON).map((barChartKey) => {
         //Let's keep the rendering of the bar chart flexible in case more plots are added in the future
         return (
@@ -164,7 +164,6 @@ const VariableStarViewer = React.forwardRef((props, ref) => {
           direction='column'
           gridArea='HRDiagram'
           margin='none'
-          width={{ max: '290px' }}
         >
           <SingleImageViewerContainer
             aria-labelledby='imageId'
